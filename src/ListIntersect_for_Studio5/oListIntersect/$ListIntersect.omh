@@ -1,0 +1,63 @@
+;  receives 2 lists:  (1) larger list of potential output  (2) smaller list to comparison data
+;  receives comparison field; needs to be common to both lists
+;  receives field type  (characters sort differently to numbers, etc)
+;  Field Types:  Char  Int (=long integer) Num (short 2dp) Date (Short to 2099)
+
+;  steps through lists, selecting lines in List one that match criteria in List 2
+
+;  will fail if: (1) psFieldType not an expected value (2) Compare list has duplicates
+
+If pos(psFieldType,'Char Int  Num Date')=0
+	OK message List Intersect {Field Type parameter not correct.}
+Else
+	If plReportList.$linecount>0&plCompare.$linecount>0
+		;  initiate booleans
+		Calculate vbList1End as kFalse
+		Calculate vbList2End as kFalse
+		
+		;  sort lists according to comparison field; & ensure no selections
+		Do plReportList.$sort($ref.[psField])     ;; plReportList
+		Do plReportList.$sendall($ref.$selected.$assign(kFalse))
+		Do plCompare.$sort($ref.[psField])     ;; plCompare
+		Do plCompare.$sendall($ref.$selected.$assign(kFalse))
+		
+		;  make the comparison field
+		Calculate vsTheField1 as con('v',psFieldType,'Field1')
+		Calculate vsTheField2 as con('v',psFieldType,'Field2')
+		
+		;  move to the first line
+		Do plReportList.$first()
+		Do plCompare.$first()
+		
+		;  and process
+		Repeat
+			Calculate [vsTheField1] as plReportList.[plReportList.$line].[psField]     ;; vsCharField1  vnIntField1
+			Calculate [vsTheField2] as plCompare.[plCompare.$line].[psField]     ;; vsCharField2  vnIntField2
+			If [vsTheField1]=[vsTheField2]     ;; we have a match, so select
+				Do plReportList.[plReportList.$line].$selected.$assign(kTrue)
+				If not(vbList1End)
+					Do plReportList.$next()
+				End If
+				Calculate vbList1End as plReportList.$line=0
+			Else If [vsTheField1]<[vsTheField2]     ;; exists in Report List but not in compare
+				If not(vbList1End)
+					Do plReportList.$next()
+				End If
+				Calculate vbList1End as plReportList.$line=0
+			Else     ;; value in Report List has bypassed compare; need to increment Compare list
+				If not(vbList2End)
+					Do plCompare.$next()
+				End If
+				Calculate vbList2End as plCompare.$line=0
+			End If
+		Until vbList1End|vbList2End
+		
+	End If     ;; lists have data
+End If     ;; psFieldType valid
+
+Quit method plReportList     ;; plCompare
+;  ---History
+;  24-06-13 PWM    (ld0005377) fixed typo in deselecting list lines for the compare list.
+;  17-06-08 CAM updated code to deselect list lines to notation; wasn't working as was no current list.
+;  25-09-06 CAM add validation.  psFieldType & lists.$linecount
+;  21-09-06 CAM created (based on PWM instruction)

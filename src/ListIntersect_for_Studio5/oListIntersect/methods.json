@@ -1,0 +1,161 @@
+[
+	{
+		"name": "$construct",
+		"ident": 1,
+		"order": 1,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$destruct",
+		"ident": 2,
+		"order": 2,
+		"pvardefs": [
+
+		],
+		"lvardefs": [
+
+		]
+	},
+	{
+		"name": "$ListIntersect",
+		"ident": 3,
+		"order": 4,
+		"pvardefs": [
+			{
+				"name": "plReportList",
+				"order": 1,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 1,
+				"desc": "List of Output; to be reduced based on 2nd List"
+			},
+			{
+				"name": "plCompare",
+				"order": 2,
+				"type": "kFieldreference",
+				"subtype": 0,
+				"sublen": 0,
+				"param": 2,
+				"desc": "Limit output to these ..."
+			},
+			{
+				"name": "psField",
+				"order": 3,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 3,
+				"desc": "Field name to compare"
+			},
+			{
+				"name": "psFieldType",
+				"order": 4,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"param": 4,
+				"desc": "Field Type of comparison field"
+			}
+		],
+		"lvardefs": [
+			{
+				"name": "vbList1End",
+				"order": 9,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "vbList2End",
+				"order": 10,
+				"type": "kBoolean",
+				"subtype": 0,
+				"sublen": 0
+			},
+			{
+				"name": "vCharField1",
+				"order": 5,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "psField=char; field for list 1"
+			},
+			{
+				"name": "vCharField2",
+				"order": 6,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000,
+				"desc": "psField=char; field for list 2"
+			},
+			{
+				"name": "vDateField1",
+				"order": 13,
+				"type": "kDate",
+				"subtype": "kDate2000",
+				"sublen": 0,
+				"desc": "psField=Date; field for list 1"
+			},
+			{
+				"name": "vDateField2",
+				"order": 14,
+				"type": "kDate",
+				"subtype": "kDate2000",
+				"sublen": 0,
+				"desc": "psField=Date; field for list 1"
+			},
+			{
+				"name": "vIntField1",
+				"order": 7,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"desc": "psField=IntNum; field for list 1"
+			},
+			{
+				"name": "vIntField2",
+				"order": 8,
+				"type": "kInteger",
+				"subtype": "k32bitint",
+				"sublen": 0,
+				"desc": "psField=IntNum; field for list 2"
+			},
+			{
+				"name": "vNumField1",
+				"order": 15,
+				"type": "kNumber",
+				"subtype": "k2dpShortnum",
+				"sublen": 0,
+				"desc": "psField=Num; field for list 1"
+			},
+			{
+				"name": "vNumField2",
+				"order": 16,
+				"type": "kNumber",
+				"subtype": "k2dpShortnum",
+				"sublen": 0,
+				"desc": "psField=Num; field for list 1"
+			},
+			{
+				"name": "vsTheField1",
+				"order": 11,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			},
+			{
+				"name": "vsTheField2",
+				"order": 12,
+				"type": "kCharacter",
+				"subtype": "kSimplechar",
+				"sublen": 100000000
+			}
+		]
+	}
+]

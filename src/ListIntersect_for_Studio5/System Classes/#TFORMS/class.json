@@ -1,0 +1,23 @@
+{
+	"classtype": "kSystemtable",
+	"internalversion": 1,
+	"properties": {
+		"componenttype": "kCompStoreHidden",
+		"createdate": "2018-01-16 12:43:51",
+		"desc": "",
+		"external": false,
+		"moddate": "2018-01-16 12:43:51",
+		"showascheckedout": false,
+		"userinfo": "",
+		"version": ""
+	},
+	"formats": [
+		"'('@@@')' @@@'-'@@@@",
+		"'('@@@')' @@@'-'@@@@ 'Ext('@@@@@')'",
+		"'('@@@@')' @@@@@@",
+		"'('@@@@')' @@@@@@ 'Ext.'@@@",
+		"@@@@ @@@@ @@@@ @@@@",
+		"@@@'-'@@@'-'@@@",
+		"@@ @@ @@ @@ @U"
+	]
+}
