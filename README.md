@@ -15,6 +15,8 @@ For this code, it executes the inner loop n x m times - where n = list 1 linecou
 
 This is where the $ListIntersect() function comes in.  This method has been written so that you only process the smallest list *once*, which results n a significant performance increase.
 
+This is really cool, so if you're going to pinch it, make sure you acknowledge us ok?
+
 ## USAGE
 ```omnis
 oListInterection.$ListIntersect(plList1,plList2,psFieldname,psFieldtype)
