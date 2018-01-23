@@ -1,19 +1,6 @@
 # ListIntersect
 
-Omnis Lists are powerful constructs that allow us to manipulate data in memory.  A common operation is selecting lines in the list, often based on another list.  A fairly simple way to do this would be to have two nested loop operations like the following pseudocode:
-
-```omnis
-For vList1.$line from 1 to vList1.$linecount step 1
-   For vList2.$line from 1 to vList2.$linecount step 1
-      If vList1.field=vList2.field
-         Select list line(s) {#L}
-   End For
-End For
-```
-
-For this code, it executes the inner loop n x m times - where n = list 1 linecount, and m = list 2 linecount. If List 1 or List 2 are large, then you could be executing the inner loop millions of times, and take a significant amount of time to do so.
-
-This is where the $ListIntersect() function comes in.  This method has been written so that you only process the smallest list *once*, which results n a significant performance increase.
+Omnis Lists are powerful constructs that allow us to manipulate data in memory.  A common operation is selecting lines in the list, often based on another list.  Omnis Lists are powerful constructs that allow us to manipulate data in memory.  A common operation is selecting lines in the list, often based on another list.  This routine is an optimised way of processing the list such that in the best case scenario only iterates through the smallest list once, and the worst case scenario only iterates through the longest list once.
 
 This is really cool, so if you're going to pinch it, make sure you acknowledge us ok?
 
